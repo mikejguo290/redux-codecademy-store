@@ -23,7 +23,8 @@ export const Cart = (props) => {
   };
 
   // Use the cart and currencyFilter slices to render their data.
-  const cartElements = 'REPLACE_ME';
+  let cartElements = []; // initialise with empty array
+  cartElements = Object.keys(cart).map(name => createCartItem(name)) //cartElements need to call on createCartItem to create array of cart objects. could be a separate component!
   const total = 0;
 
   return (
