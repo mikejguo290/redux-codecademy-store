@@ -5,6 +5,7 @@ import {
 } from '../../utilities/utilities.js';
 
 // Import the changeItemQuantity() action creator.
+import { changeItemQuantity } from './cartSlice.js';
 
 export const Cart = (props) => {
   const { cart, currencyFilter, dispatch } = props;
@@ -19,15 +20,16 @@ export const Cart = (props) => {
     const newQuantity = Number(input);
 
     // Dispatch an action to change the quantity of the given name and quantity.
-
+    dispatch(changeItemQuantity(name, newQuantity)); // updates cart with name and quantity -> e.g. cart = {hat:20, shirt: 10}
   };
 
   // Use the cart and currencyFilter slices to render their data.
   let cartElements = []; // initialise with empty array
-  cartElements = Object.keys(cart).map(name => createCartItem(name)) //cartElements need to call on createCartItem to create array of cart objects. could be a separate component!
+  cartElements = Object.keys(cart).map(name => createCartItem(name)); //cartElements need to call on createCartItem to create array of cart objects. could be a separate component!
   // caculate the total cost of cart, 
   // takes in cart object and currency selected and calculate total = item x item quantity summed over all items. 
-  const total = calculateTotal(cart, currencyFilter);
+
+  const total = calculateTotal(cart, currencyFilter); // total is recalculated each cart is updated!
 
   return (
     <div id="cart-container">
