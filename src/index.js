@@ -19,4 +19,8 @@ const render = () => {
 };
 render();
 
+// without this step, inventory.js 's useEffect(onMount, [dispatch]); after rendering to loadData won't work. 
+// need a new render() call each time store changes.
+
 // Subscribe render to the store.
+store.subscribe(render); // when any state changes occur, render() is called to render App with up to date data. 
