@@ -19,7 +19,7 @@ export const Cart = (props) => {
     // Otherwise, convert the input into a number and pass it along as the newQuantity.
     const newQuantity = Number(input);
 
-    // Dispatch an action to change the quantity of the given name and quantity.
+    // Dispatch an action to the store to change the quantity of the given name and quantity.
     dispatch(changeItemQuantity(name, newQuantity)); // updates cart with name and quantity -> e.g. cart = {hat:20, shirt: 10}
   };
 
