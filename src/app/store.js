@@ -14,3 +14,5 @@ const reducers = {
 }
 
 const rootReducer = combineReducers(reducers);
+
+const store = createStore(rootReducer);
