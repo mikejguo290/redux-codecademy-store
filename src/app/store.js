@@ -15,4 +15,4 @@ const reducers = {
 
 const rootReducer = combineReducers(reducers);
 
-const store = createStore(rootReducer);
+export const store = createStore(rootReducer);
