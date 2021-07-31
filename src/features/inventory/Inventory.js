@@ -11,7 +11,9 @@ export const Inventory = ({ inventory, currencyFilter, dispatch }) => {
   const onMount = () => {
     dispatch(loadData());
   };
-  useEffect(onMount, [dispatch]);
+  useEffect(onMount, [dispatch]); 
+  // no way to useEffect(onMount, []) without including dispatch in depenency array. why? its just a function!
+  // when does it trigger? when dispatch is first sent through? i.e. on first render?
 
   const onClickHandler = (inventoryItem) => {
     dispatch(addItem(inventoryItem));
