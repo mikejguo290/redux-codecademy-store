@@ -35,12 +35,17 @@ export const addItem = (itemToAdd) => {
       }
       case 'cart/changeItemQuantity': {
         const { name, newQuantity } = action.payload;
-        const itemToUpdate = cart[name];
-  
+        const itemToUpdate = cart[name]; // need to get a new version of this without mutating it. no cart[name] = xyz. 
+        
         // Create a copy of itemToUpdate and update the quantity prop.
-  
+        const updatedItem = {
+          ...itemToUpdate, 
+          quantity: newQuantity ,
+        }
         // Return a copy of the cart with the updatedItem included.
-        return {};
+        return {
+         
+        };
       }
       default: {
         return cart;
