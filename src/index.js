@@ -11,7 +11,8 @@ import { store } from './app/store.js';
 const render = () => {
   ReactDOM.render(
     <App 
-      
+      state={store.getState()}
+      dispatch={store.dispatch}
     />,
     document.getElementById('root')
   )
