@@ -6,4 +6,10 @@ import {currencyFilterReducer} from '../features/currencyFilter/currencyFilter';
 import {inventoryReducer} from '../features/inventory/inventorySlice';
 
 // Create and export the store here.
+const reducers = {
+    // like a blue print for the state obj returned by combineReducers. with namespacing each state to the keys set here. 
+    cart: cartReducer,
+    currencyFilter: currencyFilterReducer,
+    inventory: inventoryReducer,
+}
 
