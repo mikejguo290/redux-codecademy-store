@@ -25,7 +25,9 @@ export const Cart = (props) => {
   // Use the cart and currencyFilter slices to render their data.
   let cartElements = []; // initialise with empty array
   cartElements = Object.keys(cart).map(name => createCartItem(name)) //cartElements need to call on createCartItem to create array of cart objects. could be a separate component!
-  const total = 0;
+  // caculate the total cost of cart, 
+  // takes in cart object and currency selected and calculate total = item x item quantity summed over all items. 
+  const total = calculateTotal(cart, currencyFilter);
 
   return (
     <div id="cart-container">
@@ -40,6 +42,7 @@ export const Cart = (props) => {
   );
 
   function createCartItem(name) {
+    // item object, name, then a select options input with value set to item.quantity and an eventHandler to call dispatch and change that.
     const item = cart[name];
 
     if (item.quantity === 0) {
