@@ -13,3 +13,4 @@ const reducers = {
     inventory: inventoryReducer,
 }
 
+const rootReducer = combineReducers(reducers);
