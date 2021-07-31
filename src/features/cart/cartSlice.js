@@ -44,7 +44,8 @@ export const addItem = (itemToAdd) => {
         }
         // Return a copy of the cart with the updatedItem included.
         return {
-         
+          ...cart,
+          [name]: updatedItem, // cart object doesn't have property name, it does have cart[name], whatever name is e.g. hat. 
         };
       }
       default: {
