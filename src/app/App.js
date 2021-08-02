@@ -22,9 +22,11 @@ export const App = (props) => {
       />
 
       <Inventory
-        searchTerm={state.searchTerm}
         inventory={state.inventory}
         currencyFilter={state.currencyFilter}
+
+        searchTerm={state.searchTerm}
+
         dispatch={dispatch}
       />
       <Cart 
