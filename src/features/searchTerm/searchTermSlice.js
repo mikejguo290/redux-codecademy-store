@@ -34,7 +34,7 @@ export const clearSearchTerm = ()=> {
 }
 
 const initialSearchTerm='';
-const searchTermReducer = (searchTerm=initialSearchTerm, action) => {
+export const searchTermReducer = (searchTerm=initialSearchTerm, action) => {
     switch(action.type){
         case 'searchTerm/setSearchTerm':
             return action.payload;
