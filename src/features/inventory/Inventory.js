@@ -12,8 +12,17 @@ export const Inventory = ({ inventory, currencyFilter, dispatch }) => {
     dispatch(loadData());
   };
   useEffect(onMount, [dispatch]); 
-  // no way to useEffect(onMount, []) without including dispatch in depenency array. why? its just a function!
-  // when does it trigger? when dispatch is first sent through? i.e. on first render?
+  
+  // Q. when does effect trigger?
+  // A. loadData() is an action creator in inventorySlice that would hit inventoryReducer to set store:inventory = { inventoryData } from '../../data.js';
+  // the effect sets inventory just once, on first rendering of Inventory. then store manages inventory state. 
+
+  // Q.why is there no way to useEffect(onMount, []) without including 'dispatch' in depenency array.
+  // useEffect uses 'dispatch' which gets passed in via props. should props.dispatch change. useEffect would have to change as onMount would change
+  // not that dispatch would change. given every other bits of code around this. 
+
+   // Q. why get data only after the component mounts? load data only in sideEffect?
+  // A. is it to keep the functional component pure? is it to give user a better experience? render component and then wait for data to populate.
 
   const onClickHandler = (inventoryItem) => {
     dispatch(addItem(inventoryItem));
