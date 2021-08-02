@@ -16,4 +16,22 @@ Extra Credit:
 
 */
 
+// action creators 
+
+const setSearchTerm = (term) => {
+    // set searchTerm to be value of the term parameter 
+    return {
+        type:'searchTerm/setSearchTerm',
+        payload: term,
+    }
+}
+
+const clearSearchTerm = ()=> {
+    // clear search term - set search term to be empty string.
+    return {
+        type: 'searchTerm/clearSearchTerm',
+        payload: '',
+    }
+}
+
 
