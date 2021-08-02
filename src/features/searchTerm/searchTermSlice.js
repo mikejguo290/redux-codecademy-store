@@ -30,8 +30,17 @@ const clearSearchTerm = ()=> {
     // clear search term - set search term to be empty string.
     return {
         type: 'searchTerm/clearSearchTerm',
-        payload: '',
     }
 }
 
-
+const initialSearchTerm='';
+const searchTermReducer = (searchTerm=initialSearchTerm, action) => {
+    switch(action.type){
+        case 'searchTerm/setSearchTerm':
+            return action.payload;
+        case 'searchTerm/clearSearchTerm':
+            return ''; //the action object has no payload.
+        default:
+            return searchTerm;
+    }
+}
